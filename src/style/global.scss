@@ -1,0 +1,232 @@
+@use "../style/variables.scss" as *;
+@import "../style/fonts.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+    font-size: calc(16px + 10 * (min(1440px, max(420px, 100vw)) - 320px) / 1120);
+    overflow-y: scroll;
+
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
+
+    &:has(.overlay-on) {
+        margin-right: 17px;
+        overflow: hidden; 
+    }
+}
+
+
+body {
+    min-width: 280px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    font-weight: 300;
+    line-height: 1.2;
+    background-color: $dark;
+    color: $white;
+
+
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p {
+    margin: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+hr {
+    max-width: 1200px;
+    height: 1px;
+    border: 0;
+    background: linear-gradient(to right, rgba(235, 218, 91, 0), $yellow, rgba(235, 218, 91, 0));
+}
+
+.container {
+    max-width: $vp-1440;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.light {
+    background-color: $taup;
+    color: $black;
+
+    & .button {
+
+        &:hover,
+        &:focus {
+            background-color: $dark;
+            color: $white;
+        }
+    }
+}
+
+.title-2 {
+    margin: 0 0 40px;
+    font-size: 2rem;
+    font-weight: 600;
+    align-self: center;
+
+    &__dark {
+        color: $black;
+    }
+}
+
+.title-3 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 1.23;
+
+    &__dark {
+        color: $black;
+    }
+}
+
+button {
+    user-select: none;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.button {
+    position: relative;
+    max-width: max-content;
+    border: 0;
+    border-radius: 50px;
+    padding: 18px 28px;
+    background-color: $yellow;
+    font-size: 16px;
+    font-weight: 600;
+    overflow: hidden;
+
+    @media (max-width: $vp-360) {
+        font-size: 13px;
+    }
+
+    &--sunbeam {
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 15%;
+            height: 100%;
+            margin-left: 50px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .4));
+            transform: skewX(-45deg);
+            animation: sunbeam 4s ease-in-out 0.1s infinite;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $white;
+
+        &::after {
+            background: none;
+            animation: none;
+        }
+    }
+}
+
+.modal__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    padding: 18px 28px;
+    background-color: $black;
+    color: $white;
+
+    &:hover,
+    &:focus {
+        background-color: $yellow;
+        color: $black;
+    }
+}
+
+
+@keyframes sunbeam {
+    0% {
+        left: -30px;
+        margin-left: 0px;
+    }
+
+    30% {
+        left: 110%;
+        margin-left: 80px;
+    }
+
+    100% {
+        left: 110%;
+        margin-left: 80px;
+    }
+}
+
+// @keyframes sunbeam {
+//     0% {
+//         transform: skewX(-45deg);
+//         transform: translateX(-30px);
+//     }
+
+//     30%, 100% {
+//         transform: skewX(-45deg);
+//         transform: translateX(100%);
+
+//     }
+// }
+
+
+@keyframes movingUpandDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+    55% {
+        transform: translateY(-7px);
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}

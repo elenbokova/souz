@@ -1,0 +1,94 @@
+@use "../../style/variables.scss" as *;
+
+.header {
+  background-color: $yellow;
+  color: $black;
+  height: 80px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: $vp-768) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 300px;
+    height: 100vh;
+    padding: 60px 24px;
+    align-items: flex-start;
+    background-color: $white;
+    pointer-events: none;
+    transform: translate(100%, 0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+
+  & .container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $vp-768) {
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+  }
+
+  &.opened {
+    @media (max-width: $vp-768) {
+      pointer-events: auto;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.headroom-wrapper {
+  @media (max-width: $vp-768) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    align-self: flex-end;
+    max-width: 290px;
+    z-index: 2;
+  }
+}
+
+.headroom {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  // @media (max-width: $vp-768) {
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   left: auto;
+  //   height: max-content;
+  // }
+}
+
+.headroom--unfixed {
+  position: relative;
+  transform: translateY(0);
+
+  // &:has(.opened) {
+  //   transform: none;
+  // }
+
+}
+
+.headroom--scrolled {
+  transition: transform 200ms ease-in-out;
+}
+
+.headroom--unpinned {
+  //position: fixed;
+  transform: translateY(-100%);
+}
+
+.headroom--pinned {
+  position: fixed;
+  transform: translateY(0%);
+}

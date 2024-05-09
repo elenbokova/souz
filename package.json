@@ -1,8 +1,8 @@
 {
-  "name": "lion-s",
+  "name": "souz",
   "version": "1.0.0",
   "private": true,
-  "description": "lion-s",
+  "description": "souz",
   "author": "elenbokova",
   "keywords": [
     "gatsby"
@@ -16,16 +16,18 @@
   },
   "dependencies": {
     "gatsby": "^5.13.3",
-    "gatsby-plugin-google-gtag": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
+    "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sass": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-sitemap": "^6.13.1",
     "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-headroom": "^3.2.1",
     "sass": "^1.72.0"
   }
 }

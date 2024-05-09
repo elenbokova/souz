@@ -1,0 +1,85 @@
+@use "../../style/variables.scss" as *;
+
+.features {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        margin-bottom: 100px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 50px;
+        }
+    }
+
+    & ol {
+        margin: 30px 0 0 80px;
+        padding: 0 20px;
+        display: grid;
+
+        list-style-type: none;
+        counter-reset: feature 0;
+
+        @media (max-width: 768px) {
+            margin-left: 80px;
+            gap: 48px;
+        }
+
+        & li {
+            width: 50%;            
+            min-height: 150px;
+            counter-increment: feature 1;
+            position: relative;
+
+            &:nth-of-type(odd) {
+                justify-self: end;
+
+                @media (max-width: 768px) {
+                    justify-self: center;
+                }
+            }
+
+            &::before {
+                content: counter(feature, decimal-leading-zero);
+                position: absolute;
+                top: -100px;
+                left: -100px;
+                font-family: 'Arial', sans-serif;
+                font-size: 8rem;
+                font-weight: 600;
+                color: $yellow-brown;
+                opacity: 0.40;
+                z-index: -1;
+
+                @media (max-width: 768px) {
+                    font-size: 150px;
+                    top: -80px;
+                    left: -100px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                justify-self: center;
+                width: 100%;
+                margin-bottom: 30px;
+                min-height: 40px;
+
+            }
+        }
+    }
+
+    & span {
+        display: block;
+        margin-bottom: 8px;
+        font-family: 'Arial', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 1.1px;
+
+        @media (max-width: 768px) {
+            font-size: 1.4rem;
+        }
+    }
+}

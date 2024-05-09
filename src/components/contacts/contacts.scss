@@ -1,0 +1,52 @@
+@use "../../style/variables.scss" as *;
+
+.contacts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+
+    & .title-2 {
+        margin-bottom: 40px;
+    }
+
+    &__text {
+        max-width: 560px;
+        margin-bottom: 48px;
+        font-size: 1.2rem;
+
+    }
+
+    &__wrapper {
+        width: 70%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+
+        @media (max-width: $vp-1024) {
+            width: 90%;
+            grid-template-columns: max-content 1fr;
+        }
+
+        @media (max-width: $vp-768) {
+            display: block;
+            //text-align: center;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+        font-size: 1.4rem;
+        font-weight: 500;
+
+        @media (max-width: $vp-768) {
+            align-items: center;
+            margin-bottom: 52px;
+        }
+    }
+}

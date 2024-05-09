@@ -1,0 +1,27 @@
+.arrow-button {
+    &__link {
+        display: block;
+        width: 38px;
+        height: 18px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        animation: movingUpAndDown 2s infinite ease-in-out;
+    }
+}
+
+@keyframes movingUpAndDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-7px);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}

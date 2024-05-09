@@ -1,0 +1,39 @@
+.special {
+    padding: 45px 0 60px;
+
+    .container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    & h3 {
+        margin-bottom: 30px;
+    }
+
+    & p {
+        width: 60%;
+        margin-bottom: 5%;
+        line-height: 1.5;
+    }
+
+    .special__button {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: -10px;
+            left: -80px;
+            width: 60px;
+            height: 60px;
+            background-image: url('../../images/curved-arrow.svg');
+            transform: rotate(210deg) scaleX(-1);
+        }
+    }
+
+}
