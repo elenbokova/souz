@@ -6,7 +6,6 @@ import ConnectClose from "../../images/connect-close.svg"
 import "./sticky-button.scss"   
 
 const StickyButton = memo(({isModalOpen, onModalToggle, type, content}) => {
-    console.log('sticky button rendered')
 
     return (
         <button 

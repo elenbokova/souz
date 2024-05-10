@@ -7,7 +7,6 @@ import HeaderNavigation from "../header-navigation/header-navigation";
 import "./header.scss";
 
 const Header = ({ navLinks }) => {
-
     const ESCAPE_KEY = 27;
     const TAB_KEY = 9;
 
@@ -16,26 +15,39 @@ const Header = ({ navLinks }) => {
 
     const { isMenuOpen, toggleMenu } = useContext(MobileMenuContext);
 
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState(null);
 
     useEffect(() => {
-        const handleResize = () => {
+
+        if (typeof window !== `undefined`) {
             setWindowWidth(window.innerWidth);
         }
 
-        window.addEventListener('resize', handleResize);
+        function handleResize() {
+            if (typeof window !== `undefined`) {
+                setWindowWidth(window.innerWidth);
+            }
+        }
 
-        return () => window.removeEventListener('resize', handleResize);
+        if (typeof window !== `undefined`) {
+            window.addEventListener('resize', handleResize);
+        }
+
+        return () => {
+            if (typeof window !== `undefined`) {
+                window.removeEventListener('resize', handleResize);
+            }
+        };
     }, []);
 
 
     useEffect(() => {
-        if (isMenuOpen) { 
+        if (isMenuOpen) {
             firstNavLinkRef.current.focus();
         }
     }, [isMenuOpen]);
 
-  
+
     const handleKeyDown = (e) => {
         if (isMenuOpen) {
             if (e.keyCode === ESCAPE_KEY) {
@@ -62,12 +74,12 @@ const Header = ({ navLinks }) => {
                 onKeyDown={handleKeyDown}
             >
                 <div className="container">
-                    <HeaderNavigation 
-                    navLinks={navLinks} 
-                    firstRef={firstNavLinkRef}
-                    lastRef={lastNavLinkRef}
-                    tabIndex={isMenuOpen || windowWidth > 768 ? 0 : -1}
-                    toggleMenu={isMenuOpen? toggleMenu : null}
+                    <HeaderNavigation
+                        navLinks={navLinks}
+                        firstRef={firstNavLinkRef}
+                        lastRef={lastNavLinkRef}
+                        tabIndex={isMenuOpen || windowWidth > 768 ? 0 : -1}
+                        toggleMenu={isMenuOpen ? toggleMenu : null}
                     />
                 </div>
             </header>

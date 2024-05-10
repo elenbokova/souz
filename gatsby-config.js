@@ -3,7 +3,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `souz`,
+    title: "souz",
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: [
@@ -32,7 +32,6 @@ module.exports = {
       name: "images",
       path: `${__dirname}/src/images/`,
     },
-    // __key: "images"
   },
   {
     resolve: 'gatsby-plugin-react-svg',

@@ -18,8 +18,6 @@ import ModalGeneral from "../components/modal/modal-general"
 import StickyButton from "../components/sticky-button/sticky-button";
 
 import "../style/global.scss"
-import StickyButton2 from "../components/sticky-button/sticky-button2";
-
 
 const contactsPhone = [
   "8-8452-68-02-68",
@@ -184,10 +182,6 @@ const MainPage = () => {
     setIsOverlayActive(false);
   }, []);
 
-  const onTestClick = useCallback(() => {
-    console.log('click')
-  }, []);
-
   return (
     <>
       <MobileMenuContextProvider >
@@ -258,10 +252,6 @@ const MainPage = () => {
           <Footer />
         </Page>
       </MobileMenuContextProvider >
-
-      <StickyButton2 onTestClick={onTestClick}/>
-
-
     </>
   )
 }

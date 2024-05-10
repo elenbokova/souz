@@ -5,7 +5,7 @@
     top: 4px;
     right: 4px;
     padding: 24px 12px;
-    border: none;
+    border: 0;
     border-radius: 4px;
     box-shadow: none;
     background-color: $yellow;
@@ -16,13 +16,13 @@
         display: none;
     }
 
-    & span {
+    span {
         background: $black;
         height: 1.6px;
         width: 28px;
         display: block;
         position: relative;
-        transition:all ease 0.2s;
+        transition: all ease 0.2s;
 
 
         &::before,
@@ -35,26 +35,29 @@
             content: '';
             left: 0;
             top: 7px;
-            transition:all ease 0.2s;
+            transition: all ease 0.2s;
         }
 
-        &:before {
+        &::before {
             top: -7px;
-          }
+        }
     }
-    
+
     &.open {
         background-color: transparent;
     }
+
     &.open span {
-        background:transparent;
+        background: transparent;
     }
-    &.open span:before {
-        transform:rotate(45deg);
-        top:0;
+
+    &.open span::before {
+        transform: rotate(45deg);
+        top: 0;
     }
-    &.open span:after {
-        transform:rotate(-45deg);
-        top:0;
-    }   
+
+    &.open span::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
 }

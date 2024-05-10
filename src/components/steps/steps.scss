@@ -6,7 +6,7 @@
     font-size: 1.1rem;
     font-weight: 500;
 
-    & .title-2 {
+    .title-2 {
         margin-bottom: 80px;
 
         @media (max-width: $vp-768) {
@@ -14,7 +14,7 @@
         }
     }
 
-    & ol {
+    ol {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 28px;
@@ -35,7 +35,7 @@
         }
     }
 
-    & li {
+    li {
         counter-increment: step 1;
         display: flex;
 

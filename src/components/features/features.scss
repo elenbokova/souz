@@ -14,7 +14,7 @@
         }
     }
 
-    & ol {
+    ol {
         margin: 30px 0 0 80px;
         padding: 0 20px;
         display: grid;
@@ -27,7 +27,7 @@
             gap: 48px;
         }
 
-        & li {
+        li {
             width: 50%;            
             min-height: 150px;
             counter-increment: feature 1;
@@ -70,7 +70,7 @@
         }
     }
 
-    & span {
+    span {
         display: block;
         margin-bottom: 8px;
         font-family: 'Arial', sans-serif;

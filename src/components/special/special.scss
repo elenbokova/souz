@@ -10,11 +10,11 @@
         text-align: center;
     }
 
-    & h3 {
+    h3 {
         margin-bottom: 30px;
     }
 
-    & p {
+    p {
         width: 60%;
         margin-bottom: 5%;
         line-height: 1.5;
@@ -31,7 +31,7 @@
             left: -80px;
             width: 60px;
             height: 60px;
-            background-image: url('../../images/curved-arrow.svg');
+            //background-image: url('../../images/curved-arrow.svg');
             transform: rotate(210deg) scaleX(-1);
         }
     }

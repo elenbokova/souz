@@ -1,7 +1,7 @@
 @use "../../style/variables.scss" as *;
 
 .service-item {
-    & img {
+    img {
         aspect-ratio: 2/2;
     }
 
@@ -11,9 +11,8 @@
     }
 
     &__image {
-        @media (max-width: $vp-620) {
- 
-            & div div {
+        @media (max-width: $vp-620) { 
+            div div {
                 max-width: 620px !important;
                 width: 90vw;
             }
