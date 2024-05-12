@@ -9,15 +9,15 @@
 //   bottom: 6%;
 //   color: $dark;
 
-  // &__title {
-  //   margin: 0 0 20px;
-  //   color: $black;
-  // }
+// &__title {
+//   margin: 0 0 20px;
+//   color: $black;
+// }
 
-  // &__text {
-  //   margin: 0 0 20px;
-  //   font-size: 17px;
-  // }
+// &__text {
+//   margin: 0 0 20px;
+//   font-size: 17px;
+// }
 
 
 //   &__content {
@@ -80,6 +80,7 @@
 // }
 
 @keyframes pulsate {
+
   0%,
   100% {
     transform: scale(1, 1);
@@ -97,17 +98,21 @@
 // modal-general //
 
 .modal {
-    position: fixed;
-    width: 80%;
-    max-width: 400px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: $dark;
+  position: fixed;
+  width: 80%;
+  max-width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $dark;
 
-    &--right-corner {
-      transform: translate(0);
-    }
+  &--chat {
+    transform: translate(0);
+    top: auto;
+    left: auto;
+    right: 4%;
+    bottom: 12%;
+  }
 
   &__wrapper {
     position: relative;
@@ -125,31 +130,6 @@
   &__text {
     margin: 0 0 20px;
     font-size: 17px;
-  }
-
-  &__close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 20px;
-    height: 20px;
-    border: 0;
-    background: none;
-    box-shadow: none;
-    opacity: 0.6;
-    transition: opacity 0.2s ease-in-out;
-
-    &:hover,
-    &:focus {
-      opacity: 1;
-    }
-
-    svg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
   }
 
   strong {

@@ -243,7 +243,7 @@ const MainPage = () => {
             <StickyButton
               isModalOpen={isModalOpen}
               onModalToggle={onModalToggle}
-              type="question"
+              type="chat"
               content="phoneForm"
             />
 
@@ -261,13 +261,13 @@ export default MainPage
 export const Head = () => (
   <>
     <title>Охрана бизнеса, коттеджа и квартиры "под ключ"</title>
-    <meta name="description" content=" Семь лет на рынке охранных услуг г.Саратова и Саратовской области успешно работает группа охранных предприятий «СОЮЗ» «Патриот». Охрана объектов в г.Саратове осуществляется частным охранным предприятием «СОЮЗ», в г. Энгельсе — частным охранным предприятием «Патриот». Основную часть коллектива группы составляют бывшие сотрудники различных служб МВД, УИН, ВС, имеющие большой опыт работы по охране правопорядка, защите жизни и здоровья граждан." />
-    <meta name="keywords" content="Охрана, система, установка, под, ключ, Саратов, и, область" />
-    <meta property="og:url" content="http://project2721732.tilda.ws/page12607911.html"></meta>
-    <meta property="og:title" content="Охрана бизнеса, коттеджа и квартиры &quot;под ключ&quot;"></meta>
-    <meta property="og:description" content=" Семь лет на рынке охранных услуг г.Саратова и Саратовской области успешно работает группа охранных предприятий «СОЮЗ» «Патриот». Охрана объектов в г.Саратове осуществляется частным охранным предприятием «СОЮЗ», в г. Энгельсе — частным охранным предприятием «Патриот». Основную часть коллектива группы составляют бывшие сотрудники различных служб МВД, УИН, ВС, имеющие большой опыт работы по охране правопорядка, защите жизни и здоровья граждан."></meta>
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://static.tildacdn.com/tild6266-3236-4037-b563-346262323062/commercial-alarms.jpg"></meta>
-    <link rel="canonical" href="http://project2721732.tilda.ws/page12607911.html"></link>
+    <meta name="description" content="Семь лет на рынке охранных услуг Саратова и Саратовской области - группа охранных предприятий «СОЮЗ» «Патриот»."/>
+    <meta name="keywords" content="Охрана, система, установка, под, ключ, Саратов, и, область"/>
+    <meta property="og:url" content="http://project2721732.tilda.ws/page12607911.html"/>
+    <meta property="og:title" content="Охрана бизнеса, коттеджа и квартиры &quot;под ключ&quot;"/>
+    <meta property="og:description" content="Семь лет на рынке охранных услуг Саратова и Саратовской области - группа охранных предприятий «СОЮЗ» «Патриот»."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://static.tildacdn.com/tild6266-3236-4037-b563-346262323062/commercial-alarms.jpg"/>
+    <link rel="canonical" href="http://project2721732.tilda.ws/page12607911.html"/>
   </>
 )
