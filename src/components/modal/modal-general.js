@@ -1,9 +1,10 @@
-import React from "react"
+import React from "react";
 
+import CloseButton from "../buttons/close-button";
 import PhoneForm from "../phone-form/phone-form"
 import Phone from "../phone"
 
-import IconClose from "../../images/icon-close.svg";
+//import IconClose from "../../images/icon-close.svg";
 
 import "./modal.scss"
 
@@ -22,9 +23,9 @@ const ModalGeneral = ({ isModalOpen, type, content, isOverlayActive, onClose }) 
             title = "Проконсультироваться";
             text = "Оставьте свои данные и мы свяжемся с Вами в течении дня";
             break;
-        case "question":
+        case "chat":
             title = "Ответим на любой вопрос в течении 1 часа";
-            modalPosition = "modal--right-corner"
+            modalPosition = "chat"
             break;
         default:
             title = "Наш телефон";
@@ -44,21 +45,15 @@ const ModalGeneral = ({ isModalOpen, type, content, isOverlayActive, onClose }) 
         }
     }
 
-
     return (
         <>
             {isModalOpen && (
                 <div className={isOverlayActive ? "overlay-on" : "overlay-off"}>
-                    
-                    <div className={`modal ${modalPosition}`}>
+
+                    <div className={`modal ${type === "chat" ?
+                            "modal--chat" : ""}`}>
                         <div className="modal__wrapper">
-                            <button
-                                className="modal__close"
-                                aria-label="Закрыть окно"
-                                onClick={onClose}
-                            >
-                                <IconClose />
-                            </button>
+                            {type !== "chat" && <CloseButton onClose={onClose} />}
                             <h3 className="modal__title">{title}</h3>
                             {text && <p className="modal__text">{text}</p>}
                             {renderContent(content)}
@@ -67,9 +62,7 @@ const ModalGeneral = ({ isModalOpen, type, content, isOverlayActive, onClose }) 
                 </div>
             )}
         </>
-
     )
-
 }
 
 export default ModalGeneral
