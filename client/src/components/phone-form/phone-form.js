@@ -1,18 +1,52 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 
 import useFocusOnModalOpen from "../../hooks/useFocusOnModalOpen";
-import { TextInput, TelInput } from "../form-components/form-components";
+import { TextInput, PhoneInput } from "../form-components/form-components";
 
 import "./phone-form.scss"
 
 const PhoneForm = ({ isModal }) => {
+
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+
+    const onFormSubmit = async(event) => {
+        event.preventDefault();
+
+        const data = { name, phone };
+        
+        try {
+            const response = await fetch('http://localhost:7000/sendmail', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            });
+     
+            if (response.ok) {
+              console.log('Сообщение отправлено');
+              // Очистка формы или другие действия после отправки
+            } else {
+              console.error('Ошибка при отправке сообщения');
+            }
+          } catch (error) {
+            console.error('Ошибка при отправке сообщения', error);
+          }
+
+    };
 
     let focusRef = useRef(null);
 
     useFocusOnModalOpen(isModal, focusRef);
 
     return (
-        <form className="phone-form" action="#" method="POST">
+        <form 
+        name="phone-form"
+        className="phone-form"         
+        method="POST" 
+        onSubmit={onFormSubmit}
+        data-netlify="true">
             <TextInput
                 ref={isModal ? focusRef : null}
                 label="Имя"
@@ -20,12 +54,14 @@ const PhoneForm = ({ isModal }) => {
                 placeholder="Имя"
                 minLength="2"
                 required
+                onChange={(e) => setName(e.target.value)}
             />
-            <TelInput
+            <PhoneInput
                 placeholder="+7 (999) 999-99-99"
                 minLength="15"
                 maxLength="18" 
                 required
+                onChange={(e) => setPhone(e.target.value)}
             />
 
             {isModal ? (
