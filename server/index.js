@@ -1,10 +1,17 @@
-require('dotenv').config();
-const express = require("express");
-const nodemailer = require("nodemailer");
-const cors = require("cors");
+import dotenv from 'dotenv';
+import express from 'express';
+import nodemailer from 'nodemailer';
+import cors from 'cors';
+
+dotenv.config();
 
 const app = express();
-app.use(cors());
+const PORT = process.env.PORT || 7000;
+
+app.use(cors({
+    origin: 'http://localhost:8000',
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+}));
 app.use(express.json());
 
 app.use(express.static('public'));
@@ -40,4 +47,4 @@ app.post("/sendmail", cors(), (req, res) => {
     });
 });
 
-app.listen(process.env.PORT, () => console.log(`Server is running on port ${process.env.PORT}`));
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

@@ -1,7 +1,19 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
 module.exports = {
+  developMiddleware: app => {
+    app.use(
+      "/sendmail",
+      createProxyMiddleware({
+        target: "http://localhost:8000",
+        changeOrigin: true,
+      })
+    );
+  },
   siteMetadata: {
     title: "souz",
     siteUrl: `https://www.yourdomain.tld`

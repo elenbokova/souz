@@ -15,7 +15,7 @@ export const TextInput = forwardRef(({ label, name, placeholder, ...rest }, ref)
     );    
 });
 
-export const TelInput = forwardRef(({ label, placeholder, ...rest }, ref) => {
+export const PhoneInput = forwardRef(({ label, placeholder, ...rest }, ref) => {
     return (
         <label>
             <span className="visually-hidden">Телефон</span>
