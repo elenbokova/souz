@@ -12,8 +12,8 @@ exports.handler = async (event, context) => {
       port: 465,
       secure: true,
       auth: {
-        user: process.env.MAIL, 
-        pass: process.env.PASSWORD, 
+        user: process.env.MAIL,
+        pass: process.env.PASSWORD,
       },
     });
 
