@@ -67,8 +67,9 @@ const PhoneForm = ({ isModal }) => {
     event.preventDefault();
 
     try {
-      const response = await fetch('/.netlify/functions/send-email', {
+      const response = await fetch('/', {
         method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: JSON.stringify({ name, phone }),
       });
       if (response.ok) {
