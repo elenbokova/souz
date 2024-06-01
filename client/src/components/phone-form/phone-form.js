@@ -67,19 +67,19 @@ const PhoneForm = ({ isModal }) => {
     event.preventDefault();
 
     try {
-      const response = await fetch('/.netlify/functions/emails', {
+      const response = await fetch('/.netlify/functions/sendMail', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, phone }),
       });
       if (response.ok) {
         console.log('Сообщение отправлено успешно');
         // Очистка формы или другие действия после отправки
       } else {
-        console.error('Ошибка при отправке сообщения');
+        console.error('Ошибка при отправке письма');
       }
     } catch (error) {
-      console.error("Ошибка при отправке формы", error);
+      console.error("Ошибка при отправке письма", error);
     }
   }
 

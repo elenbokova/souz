@@ -3,30 +3,28 @@ import nodemailer from 'nodemailer';
 
 dotenv.config();
 
+let transporter = nodemailer.createTransport({
+  host: process.env.MAIL_HOST,
+  port: process.env.MAIL_PORT,
+  secure: process.env.MAIL_PORT == 465,
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
+  },
+});
+
 exports.handler = async (event, context) => {
   try {
     const { name, phone } = JSON.parse(event.body);
 
-    let transporter = nodemailer.createTransport({
-      host: 'smtp.mail.ru',
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.MAIL,
-        pass: process.env.PASSWORD,
-      },
-    });
-
-    // Email options
     let mailOptions = {
-      from: process.env.MAIL,
-      to: process.env.MAIL,
+      from: process.env.MAIL_USER,
+      to: process.env.MAIL_USER,
       subject: 'Новая заявка с сайта',
       text: `Имя: ${name}\nТелефон: ${phone}`,
     };
 
     let info = await transporter.sendMail(mailOptions);
-
     console.log('Сообщение отправлено: %s', info.messageId);
 
     return {
@@ -37,7 +35,7 @@ exports.handler = async (event, context) => {
     console.error('Ошибка при отправке сообщения:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Не удалось отправить сообщение' }),
+      body: JSON.stringify({ error: error.message }),
     };
   }
 };
