@@ -50,15 +50,16 @@ import nodemailer from 'nodemailer';
 
 // Настройка транспондера nodemailer с использованием переменных окружения
 const transporter = nodemailer.createTransport({
-  host: Netlify.env.get("MAIL_HOST"),
-  port: Netlify.env.get("MAIL_PORT"),
-  secure: Netlify.env.get("MAIL_PORT") == 465,
+  host: process.env.MAIL_HOST,
+  port: process.env.MAIL_PORT,
+  secure: process.env.MAIL_PORT == 465,
   auth: {
-    user: Netlify.env.get("MAIL_USER"),
-    pass: Netlify.env.get("MAIL_PASS"),
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
   },
 });
 
+// Основная функция-обработчик
 export async function handler(event, context) {
   if (event.httpMethod !== 'POST') {
     return {
@@ -70,8 +71,8 @@ export async function handler(event, context) {
   const { name, phone } = JSON.parse(event.body);
 
   const mailOptions = {
-    from: Netlify.env.get("MAIL_USER"),
-    to: Netlify.env.get("MAIL_USER"),
+    from: process.env.MAIL_USER,
+    to: process.env.MAIL_USER,
     subject: 'Новая заявка с сайта',
     text: `Имя: ${name}\nТелефон: ${phone}`,
   };
@@ -89,3 +90,4 @@ export async function handler(event, context) {
     };
   }
 }
+
