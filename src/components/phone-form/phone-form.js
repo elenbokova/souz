@@ -76,7 +76,7 @@ const PhoneForm = ({ isModal }) => {
         console.log('Сообщение отправлено успешно');
         // Очистка формы или другие действия после отправки
       } else {
-        console.error('Ошибка при отправке письма');
+        console.error('Response not ok');
       }
     } catch (error) {
       console.error("Ошибка при отправке письма", error);
